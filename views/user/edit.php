@@ -4,7 +4,7 @@
 <main role="main" class="container">
   <h1>Edicion de usuario</h1>
 
-  <form class="form" action="/user/edit" method="post">
+  <form class="form" action="/user/update/<?= $user->id?>" method="post">
     <div class="form-group">
         <label for="name">Nombre</label>
         <input class="form-control" type="text" value="<?= $user->name ?>" name="name">

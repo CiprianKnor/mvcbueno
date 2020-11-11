@@ -69,6 +69,7 @@ class User extends Model
 
         $statement = $db->prepare('UPDATE users set `name`=:name, `surname`=:surname, `email` =:surname, `email`=:email, `birthdate`=:birthdate where id=:id');
         $data = [
+        ':id' => $this->id,
         ':name' => $this->name,
         ':surname' => $this->surname,
         ':email' => $this->email,
