@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MVC</title>
-</head>
-<body>
-    <h1>Lista de usuarios  </h1>
-
-    <table>
+<?php include('../views/parts/head.php'); ?>
+<?php include('../views/parts/header.php'); ?>
+<!-- Begin page content -->
+<main role="main" class="container">
+  <h1>Lista de usuarios  
+  <a class="btn btn-primary float-right" href="/user/create">Nuevo</a></h1>
+  <table class="table table-striped">
         <thead>
             <tr>
             <th>Nombre</th>
@@ -24,11 +20,13 @@
                 <td><?= $user->surname ?></td>
                 <td><?= $user->email ?></td>
                 <td><?= $user->birthdate ?></td>
-                <td><a href="/user/show/<?= $user->id ?>">  Ver </a></td>
+                <td><a class="btn btn-primary btn-xs" href="/user/show/<?= $user->id ?>">  Ver </a></td>
+                <td><a class="btn btn-primary btn-xs" href="/user/edit/<?= $user->id ?>">  Editar </a></td>
                 
                 </tr>
             <?php } ?>            
         </tbody>
     </table>
-</body>
-</html>
+</main>
+
+<?php include('../views/parts/footer.php'); ?>

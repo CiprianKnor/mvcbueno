@@ -1,10 +1,12 @@
 <?php
 namespace App\Models;
 
+require_once '../core/Model.php';
 use PDO;
 use PDOException;
+use Core\Model; 
 
-class User
+class User extends Model
 {
     public function __construct()
     {
@@ -43,5 +45,37 @@ class User
             echo 'Falló la conexión: ' . $e->getMessage();
         }
         return $db;
+    }
+
+    public function insert()
+    {
+        $db = User::db();
+
+        $statement = $db->prepare('INSERT INTO users(name, surname, email, birthdate) values(:name, :surname, :email, :birthdate)');
+        $data = [
+        ':name' => $this->name,
+        ':surname' => $this->surname,
+        ':email' => $this->email,
+        ':birthdate' => $this->birthdate
+        ]; 
+        return $statement->execute($data);   
+        
+        //anio-mes-dia
+    }
+
+    public function save()
+    {
+        $db = User::db();
+
+        $statement = $db->prepare('UPDATE users set `name`=:name, `surname`=:surname, `email` =:surname, `email`=:email, `birthdate`=:birthdate where id=:id');
+        $data = [
+        ':name' => $this->name,
+        ':surname' => $this->surname,
+        ':email' => $this->email,
+        ':birthdate' => $this->birthdate
+        ]; 
+        return $statement->execute($data);   
+        
+        //anio-mes-dia
     }
 }
