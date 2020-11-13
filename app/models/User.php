@@ -79,4 +79,17 @@ class User extends Model
         
         //anio-mes-dia
     }
+
+    public function delete(){
+        $db = User::db();
+
+        $statement = $db->prepare('DELETE from users where id=:id');
+        return $statement->execute([':id' => $this->id]);
+    }
+
+    public static function destroy($id){
+        $db = User::db();
+        $statement = $db->prepare('DELETE from users where id=:id');
+        return $statement->execute([':id' => $id]);
+    }
 }

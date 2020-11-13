@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MVC</title>
-</head>
-<body>
+<?php include('../views/parts/head.php'); ?>
+<?php include('../views/parts/header.php'); ?>
     <h1>Detalle de usuario <?= $user->id ?></h1>
     <ul>
         <li>
@@ -21,5 +15,4 @@
             F. Nacimiento: <?= $user->birthdate ?>
         </li>
     </ul>
-</body>
-</html>
+    <?php include('../views/parts/footer.php'); ?>

@@ -44,4 +44,42 @@ class product_type
         }
         return $db;
     }
+
+    public function insert()
+    {
+        $db = product_type::db();
+
+        $statement = $db->prepare('INSERT INTO product_types(name) values(:name)');
+        $data = [
+        ':name' => $this->name
+        ]; 
+        return $statement->execute($data);   
+    }
+
+    public function save()
+    {
+        $db = product_type::db();
+
+        $statement = $db->prepare('UPDATE product_types set `name`=:name where id=:id');
+        $data = [
+        ':id' => $this->id,
+        ':name' => $this->name,
+        ]; 
+        return $statement->execute($data);   
+        
+        //anio-mes-dia
+    }
+
+    public function delete(){
+        $db = product_type::db();
+
+        $statement = $db->prepare('DELETE from product_types where id=:id');
+        return $statement->execute([':id' => $this->id]);
+    }
+
+    public static function destroy($id){
+        $db = product_type::db();
+        $statement = $db->prepare('DELETE from product_types where id=:id');
+        return $statement->execute([':id' => $id]);
+    }
 }

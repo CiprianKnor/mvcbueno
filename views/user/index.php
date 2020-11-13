@@ -1,5 +1,6 @@
 <?php include('../views/parts/head.php'); ?>
 <?php include('../views/parts/header.php'); ?>
+
 <!-- Begin page content -->
 <main role="main" class="container">
   <h1>Lista de usuarios  
@@ -22,7 +23,7 @@
                 <td><?= $user->birthdate ?></td>
                 <td><a class="btn btn-primary btn-xs" href="/user/show/<?= $user->id ?>">  Ver </a></td>
                 <td><a class="btn btn-primary btn-xs" href="/user/edit/<?= $user->id ?>">  Editar </a></td>
-                
+                <td><a class="btn btn-primary btn-xs" href="/user/delete/<?= $user->id ?>">  Borrar </a></td>
                 </tr>
             <?php } ?>            
         </tbody>
